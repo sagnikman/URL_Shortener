@@ -19,8 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/url',[UrlController::class,'all']);
+Route::get('/url',[UrlController::class,'all'])->name('url.all');
 Route::get('/url/{id}',[UrlController::class,'index']);
-Route::post('/url',[UrlController::class,'store']);
+Route::post('/url',[UrlController::class,'store'])->name('create');
 Route::put('/url/{id}',[UrlController::class,'update']);
 Route::delete('/url/{id}',[UrlController::class,'destroy']);

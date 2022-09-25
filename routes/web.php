@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/',[UrlController::class,'getHome'])->name('home');
 Route::get('/{slug}',[UrlController::class,'redirectToUrl']);
+Route::view('/notFound','404');
