@@ -58,11 +58,11 @@ input[type=url]:focus {
         @csrf
         <input type="hidden" name="user_id" value=1>
         <div class="form-row justify-content-center" style="margin-bottom: 0pt;">
-            <div class="form-group col-xl-3 col-lg-3 col-md-4">
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-2">
                 <div class="input-group mx-auto mb-3">
                     <input style="color: white; text-align:center;" class="form-control" type="url" 
                     size="2" name="url" style="text-align:center" 
-                    placeholder="Enter URL" value="{{old('url')}}">
+                    placeholder="Enter URL" value="{{old('url')}}" id="textsend" onkeyup="success()">
                   </div>
                   <div class="text-danger" style="font-size: 10pt">
                     @error('url')
@@ -74,11 +74,14 @@ input[type=url]:focus {
         </div>
 
         <div class="form-row justify-content-center">
-            <div class="form-group col-xl-3 col-lg-3 col-md-4">
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-2">
                 <div class="input-group mx-auto mb-3">
                     <input style="color: white; text-align:center" class="form-control" type="text"
                      size="2" name="slug" style="text-align:center" 
                      placeholder="Enter Slug" value="{{old('slug')}}" maxlength="8">
+                     <small id="passwordHelpBlock" class="form-text text-muted">
+                      Your slug must be 1-8 characters long, contain only letters or numbers, you can leave this blank for random slug 
+                    </small>
                     </div>
                     <div class="text-danger" style="font-size: 10pt">
                       @error('slug')
@@ -88,9 +91,12 @@ input[type=url]:focus {
                 
             </div>
         </div>
-        <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-primary" id="button1">Create</button>
+        <div class="form-row justify-content-center">
+          <div class="text-center align-items-center col-xl-4 col-lg-3 col-md-3 col-sm-3 col-xs-2">
+            <button type="submit" class="btn btn-primary" id="button1" disabled>Create</button>
          </div>
+        </div>
+        
     </form>
     <br><br>
     @if(session('createdUrl'))
@@ -106,5 +112,14 @@ input[type=url]:focus {
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+<script>
+  function success() {
+    if(document.getElementById("textsend").value==="") { 
+           document.getElementById('button1').disabled = true; 
+       } else { 
+           document.getElementById('button1').disabled = false;
+       }
+   }  
+</script>
 </body>
 </html>
