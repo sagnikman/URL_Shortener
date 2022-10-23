@@ -18,4 +18,4 @@ yarn-error.log
 .fly/
 Dockerfile
 fly.toml
-./config/database.php
+/config/database.php
