@@ -14,3 +14,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+.dockerignore
+.fly/
+Dockerfile
+fly.toml
+config/database.php
