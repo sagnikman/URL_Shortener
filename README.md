@@ -2,7 +2,7 @@
 
 > ### Web Application for generating custom/random short URLs for long URL.
 
-![](storage\URL_Shortener_Project_Demo.gif)
+![](https://raw.githubusercontent.com/sagnikman/Url_Shortener/main/storage/URL_Shortener_Project_Demo.gif)
 
 ----------
 
